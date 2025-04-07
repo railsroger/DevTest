@@ -80,3 +80,9 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 ```
 
+### Запуск:
+```
+docker build -t flask-ping-app .
+docker run -p 5000:5000 flask-ping-app
+```
+
