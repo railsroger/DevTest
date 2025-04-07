@@ -86,3 +86,6 @@ docker build -t flask-ping-app .
 docker run -p 5000:5000 flask-ping-app
 ```
 
+### Результат:
+![Result](https://github.com/railsroger/DevTest/blob/main/images/start.png)
+![Result](https://github.com/railsroger/DevTest/blob/main/images/result.png)
