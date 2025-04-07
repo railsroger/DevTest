@@ -27,3 +27,16 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
+### Создаем файл app.py с содержимым:
+```
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route('/ping')
+def ping():
+    return jsonify({"status": "ok"})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+```
