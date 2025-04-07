@@ -40,3 +40,25 @@ def ping():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 ```
+
+### Создаем файл requirements.txt и добавляем зависимости (поправка, что может ругаться на невозможность импорта модуля, тогда добавляем еще Werkzeug). Ошибка может быть вида:
+```
+Traceback (most recent call last):
+  File "/app/app.py", line 1, in <module>
+    from flask import Flask, jsonify
+  File "/usr/local/lib/python3.9/site-packages/flask/__init__.py", line 7, in <module>
+    from .app import Flask as Flask
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 28, in <module>
+    from . import cli
+  File "/usr/local/lib/python3.9/site-packages/flask/cli.py", line 18, in <module>
+    from .helpers import get_debug_flag
+  File "/usr/local/lib/python3.9/site-packages/flask/helpers.py", line 16, in <module>
+    from werkzeug.urls import url_quote
+ImportError: cannot import name 'url_quote' from 'werkzeug.urls' (/usr/local/lib/python3.9/site-packages/werkzeug/urls.py)
+```
+Исправляем добавлением Werkzeug:
+```
+Flask==2.0.3
+Werkzeug==2.0.3
+```
+
