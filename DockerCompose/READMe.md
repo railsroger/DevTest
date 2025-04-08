@@ -67,5 +67,7 @@ docker-compose up --build
 ```
 
 ### Результат:
-![Result](https://github.com/railsroger/DevTest/blob/main/images/start.png)
-![Result](https://github.com/railsroger/DevTest/blob/main/images/result.png)
+![Result](https://github.com/railsroger/DevTest/blob/main/DockerCompose/images/images.jpg)
+![Result](https://github.com/railsroger/DevTest/blob/main/DockerCompose/images/build.jpg)
+![Result](https://github.com/railsroger/DevTest/blob/main/DockerCompose/images/start.jpg)
+![Result](https://github.com/railsroger/DevTest/blob/main/DockerCompose/images/result.jpg)
