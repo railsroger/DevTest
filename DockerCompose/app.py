@@ -1,23 +1,19 @@
-from flask import Flask, jsonify
+from flask import Flask
 import redis
 import os
 
-app = Flask(name)
-redis_host = os.getenv('REDIS_HOST', 'redis')
-redis_client = redis.Redis(host=redis_host, port=6379, db=0)
-
-@app.route('/ping')
-def ping():
-    return jsonify({"status": "ok"})
+app = Flask(__name__)
+redis_host = os.getenv('REDIS_HOST', 'localhost')
+redis_port = os.getenv('REDIS_PORT', 6379)
+cache = redis.Redis(host=redis_host, port=redis_port, decode_responses=True)
 
 @app.route('/count')
 def count():
     try:
-        visits = redis_client.incr('counter')
-        return jsonify({"count": visits})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        visits = cache.incr('visits')
+        return f'This page has been visited {visits} times.'
+    except redis.exceptions.ConnectionError as e:
+        return f'Redis error: {str(e)}', 500
 
-if name == 'main':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
