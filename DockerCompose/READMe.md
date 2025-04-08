@@ -44,7 +44,7 @@ Werkzeug==2.0.3
 redis==4.1.0
 ```
 
-### Создаем Dockerfile с содержимым:
+### Оставляем Dockerfile с содержимым, таким же как в первом задании:
 ```
 FROM python:3.9
 
@@ -53,7 +53,6 @@ WORKDIR /app
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install Flask
 
 COPY app.py .
 
